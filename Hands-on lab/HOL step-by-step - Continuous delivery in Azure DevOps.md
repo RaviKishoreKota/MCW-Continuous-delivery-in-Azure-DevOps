@@ -394,7 +394,7 @@ Optionally, you can also add new alerts in the ARM template. This is not part of
 ```
 The updated ARM template will look like images below.
 ![This is a screenshot of a action group ARM in visual studio.](images/stepbystep/media/actiongroup.png "Action Group ARM")
-![This is a screenshot of a metric alerts ARM in visual studio.](images/stepbystep/media/metricalerts.png "Metricl Alert ARM")
+![This is a screenshot of a metric alerts ARM in visual studio.](images/stepbystep/media/metricalert.png "Metricl Alert ARM")
 
 
 ### Task 10: Create the test environment and deploy the template to Azure
