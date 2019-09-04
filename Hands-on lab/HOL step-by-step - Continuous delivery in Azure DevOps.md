@@ -301,6 +301,11 @@ Since this solution is based on Azure Platform-as-a-Service (PaaS) technology, i
     
    ![This is a screenshot of a highlighted instrumentation key in the output window.](images/stepbystep/media/image46.png "instrumentation key")
 
+9. If the deployment fails due to classic alerts, it is because classic alerts are deprecated. 
+Please remove classic alerts from the ARM template and run the deployment again.
+
+![This is a screenshot of a classic alerts in visual studio.](images/stepbystep/media/classicalerts.png "Classic alerts")
+
 ### Task 10: Create the test environment and deploy the template to Azure
 
 The following steps are very similar to what was done in the previous task with the exception that you are now creating the test environment
