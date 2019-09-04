@@ -302,9 +302,100 @@ Since this solution is based on Azure Platform-as-a-Service (PaaS) technology, i
    ![This is a screenshot of a highlighted instrumentation key in the output window.](images/stepbystep/media/image46.png "instrumentation key")
 
 9. If the deployment fails due to classic alerts, it is because classic alerts are deprecated. 
-Please remove classic alerts from the ARM template and run the deployment again.
+Please remove classic alerts from the ARM template and run the deployment again. You can delete resource by right click and Delete.
 
 ![This is a screenshot of a classic alerts in visual studio.](images/stepbystep/media/classicalerts.png "Classic alerts")
+
+
+Optionally, you can also add new alerts in the ARM template. This is not part of the ARM wizard in Visual Studio. Please copy below ARM snippets to create Metric alerts and Action groups.
+```
+    {
+      "type": "Microsoft.Insights/actionGroups",
+      "apiVersion": "2018-03-01",
+      "name": "[concat('ActionGroup ', parameters('TailspinToysHostingPlanName'))]",
+      "location": "Global",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', parameters('TailspinToysHostingPlanName'))]"
+      ],
+      "properties": {
+        "groupShortName": "[concat('ag', parameters('environment'))]",
+        "enabled": true,
+        "smsReceivers": [
+          {
+            "name": "contosoSMS",
+            "countryCode": "1",
+            "phoneNumber": "5555551212"
+          },
+          {
+            "name": "contosoSMS2",
+            "countryCode": "1",
+            "phoneNumber": "5555552121"
+          }
+        ],
+        "emailReceivers": [
+          {
+            "name": "contosoEmail",
+            "emailAddress": "devops@contoso.com"
+          },
+          {
+            "name": "contosoEmail2",
+            "emailAddress": "devops2@contoso.com"
+          }
+        ],
+        "webhookReceivers": [
+          {
+            "name": "contosoHook",
+            "serviceUri": "http://requestb.in/1bq62iu1"
+          },
+          {
+            "name": "contosoHook2",
+            "serviceUri": "http://requestb.in/1bq62iu2"
+          }
+        ]
+      }
+    },
+    {
+      "name": "[concat('CPUHigh ', parameters('TailspinToysHostingPlanName'))]",
+      "type": "Microsoft.Insights/metricAlerts",
+      "location": "global",
+      "apiVersion": "2018-03-01",
+      "tags": {},
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', parameters('TailspinToysHostingPlanName'))]",
+        "[resourceId('Microsoft.Insights/actionGroups', concat('ActionGroup ', parameters('TailspinToysHostingPlanName')))]"
+      ],
+      "properties": {
+        "description": "[concat('The average CPU is high across all the instances of ', parameters('TailspinToysHostingPlanName'))]",
+        "severity": "3",
+        "enabled": "true",
+        "scopes": [ "[resourceId('Microsoft.Web/serverfarms', parameters('TailspinToysHostingPlanName'))]" ],
+        "evaluationFrequency": "PT1M",
+        "windowSize": "PT5M",
+        "criteria": {
+          "odata.type": "Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria",
+          "allOf": [
+            {
+              "name": "1st criterion",
+              "metricName": "CpuPercentage",
+              "dimensions": [],
+              "operator": "GreaterThan",
+              "threshold": "80",
+              "timeAggregation": "Average"
+            }
+          ]
+        },
+        "actions": [
+          {
+            "actionGroupId": "[resourceId('Microsoft.Insights/actionGroups', concat('ActionGroup ', parameters('TailspinToysHostingPlanName')))]"
+          }
+        ]
+      }
+    }
+```
+The updated ARM template will look like images below.
+![This is a screenshot of a action group ARM in visual studio.](images/stepbystep/media/actiongroup.png "Action Group ARM")
+![This is a screenshot of a metric alerts ARM in visual studio.](images/stepbystep/media/metricalerts.png "Metricl Alert ARM")
+
 
 ### Task 10: Create the test environment and deploy the template to Azure
 
