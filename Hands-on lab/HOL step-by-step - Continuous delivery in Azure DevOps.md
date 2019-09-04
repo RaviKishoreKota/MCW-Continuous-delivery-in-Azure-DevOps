@@ -287,7 +287,16 @@ Since this solution is based on Azure Platform-as-a-Service (PaaS) technology, i
 
     ![In the Deploy to Resource Group window, the resource group has been created, and the Edit Parameters button is highlighted.](images/stepbystep/media/image43.png "Deploy to Resource Group window")
 
-6.  In the next window, select "dev" from the list of environments. Then, pick an admin username, and password for the database, it does not matter what you choose. Then use "TailspinData" for the TailspinDataName value. Call the hosting plan "TailspinHostingPlan1" and choose "S1" for the Sku. Finally, be sure to check the "Save passwords..." option at the bottom See this screen shot for help. When finished, click Save.
+6.  In the next window, select "dev" from the list of environments. Then, pick an admin username, and password for the database, it does not matter what you choose. Minimum requirements for password complexity are
+- The password does not contain the account name of the user
+- 8 characters minimum and 16 characters maximum
+- Requires 3 out of 4 of the following:
+ -- Lowercase characters
+ -- Uppercase characters
+ -- Numbers (0-9)
+ -- Non-alphanumeric characters such as: exclamation point (!), dollar sign ($), number sign (#), or percent (%).
+
+Then use "TailspinData" for the TailspinDataName value. Call the hosting plan "TailspinHostingPlan1" and choose "S1" for the Sku. Finally, be sure to check the "Save passwords..." option at the bottom See this screen shot for help. When finished, click Save.
     
     ![In the Edit Parameters window, the dev value is highlighted along with the values for the admin username and the database password. The TailspinData, TailspinHostingPlan1, and S1 values are also highlighted, and the Save passwords as plain text in the parameters file check box is selected.](images/stepbystep/media/image44.png "Edit Parameters window")
 
@@ -415,7 +424,16 @@ The following steps are very similar to what was done in the previous task with 
 
     ![In the Deploy to Resource Group window, the resource group has been created, and the Edit Parameters button is highlighted.](images/stepbystep/media/image48.png "Deploy to Resource Group window")
 
-4.  In the next window, select "test" from the list of environments. Then, pick an admin username, and password for the database, it does not matter what you choose. Then use "TailspinData" for the TailspinDataName value. Call the hosting plan "TailspinHostingPlan1" and choose "S1" for the Sku. Finally, be sure to check the "Save passwords..." option at the bottom See this screen shot for help. When finished, click Save.
+4.  In the next window, select "test" from the list of environments. Then, pick an admin username, and password for the database, it does not matter what you choose. Minimum requirements for password complexity are
+- The password does not contain the account name of the user
+- 8 characters minimum and 16 characters maximum
+- Requires 3 out of 4 of the following:
+ -- Lowercase characters
+ -- Uppercase characters
+ -- Numbers (0-9)
+ -- Non-alphanumeric characters such as: exclamation point (!), dollar sign ($), number sign (#), or percent (%).
+
+Then use "TailspinData" for the TailspinDataName value. Call the hosting plan "TailspinHostingPlan1" and choose "S1" for the Sku. Finally, be sure to check the "Save passwords..." option at the bottom See this screen shot for help. When finished, click Save.
 
     ![In the Edit Parameters window, the test value is highlighted along with the values for the admin username and the database password. The TailspinData, TailspinHostingPlan1, and S1 values are also highlighted, and the Save passwords as plain text in the parameters file check box is selected.](images/stepbystep/media/image49.png "Edit Parameters window")
 
@@ -447,7 +465,16 @@ The following steps are very similar to what was done in the previous task with 
 
     ![In the Deploy to Resource Group window, the resource group has been created, and the Edit Parameters button is highlighted.](images/stepbystep/media/image52.png "Deploy to Resource Group window")
 
-4.  In the next window, select "production" from the list of environments. Then, pick an admin username, and password for the database, it does not matter what you choose. Then use "TailspinData" for the TailspinDataName value. Call the hosting plan "TailspinHostingPlan1" and choose "S1" for the Sku. Finally, be sure to check the "Save passwords..." option at the bottom See this screen shot for help. When finished, click Save.
+4.  In the next window, select "production" from the list of environments. Then, pick an admin username, and password for the database, it does not matter what you choose. Minimum requirements for password complexity are
+- The password does not contain the account name of the user
+- 8 characters minimum and 16 characters maximum
+- Requires 3 out of 4 of the following:
+ -- Lowercase characters
+ -- Uppercase characters
+ -- Numbers (0-9)
+ -- Non-alphanumeric characters such as: exclamation point (!), dollar sign ($), number sign (#), or percent (%).
+
+Then use "TailspinData" for the TailspinDataName value. Call the hosting plan "TailspinHostingPlan1" and choose "S1" for the Sku. Finally, be sure to check the "Save passwords..." option at the bottom See this screen shot for help. When finished, click Save.
 
     ![In the Edit Parameters window, the production value is highlighted along with the values for the admin username and the database password. The TailspinData, TailspinHostingPlan1, and S1 values are also highlighted, and the Save passwords as plain text in the parameters file check box is selected.](images/stepbystep/media/image53.png "Edit Parameters window")
 
